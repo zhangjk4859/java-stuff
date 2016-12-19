@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yuyanzhe.mybatis.numymapper.ConContractMapper" >
+  <resultMap id="BaseResultMap" type="com.yuyanzhe.mybatis.numybeans.ConContract" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="main_code" property="mainCode" jdbcType="VARCHAR" />
+    <result column="main_name" property="mainName" jdbcType="VARCHAR" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="money" property="money" jdbcType="DECIMAL" />
+    <result column="money_max" property="moneyMax" jdbcType="VARCHAR" />
+    <result column="bank_pop" property="bankPop" jdbcType="VARCHAR" />
+    <result column="bank_name" property="bankName" jdbcType="VARCHAR" />
+    <result column="bank_card" property="bankCard" jdbcType="VARCHAR" />
+    <result column="reg_address" property="regAddress" jdbcType="VARCHAR" />
+    <result column="reg_date" property="regDate" jdbcType="TIMESTAMP" />
+    <result column="start_date" property="startDate" jdbcType="TIMESTAMP" />
+    <result column="end_date" property="endDate" jdbcType="TIMESTAMP" />
+    <result column="linke_customer" property="linkeCustomer" jdbcType="VARCHAR" />
+    <result column="linke_address" property="linkeAddress" jdbcType="VARCHAR" />
+    <result column="linke_phone" property="linkePhone" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="VARCHAR" />
+    <result column="create_update" property="createUpdate" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="remark2" property="remark2" jdbcType="VARCHAR" />
+    <result column="remark3" property="remark3" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, main_code, main_name, code, money, money_max, bank_pop, bank_name, bank_card, 
+    reg_address, reg_date, start_date, end_date, linke_customer, linke_address, linke_phone, 
+    create_date, create_update, remark, remark2, remark3, status, type
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from con_contract
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from con_contract
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yuyanzhe.mybatis.numybeans.ConContract" >
+    insert into con_contract (id, main_code, main_name, 
+      code, money, money_max, 
+      bank_pop, bank_name, bank_card, 
+      reg_address, reg_date, start_date, 
+      end_date, linke_customer, linke_address, 
+      linke_phone, create_date, create_update, 
+      remark, remark2, remark3, 
+      status, type)
+    values (#{id,jdbcType=INTEGER}, #{mainCode,jdbcType=VARCHAR}, #{mainName,jdbcType=VARCHAR}, 
+      #{code,jdbcType=VARCHAR}, #{money,jdbcType=DECIMAL}, #{moneyMax,jdbcType=VARCHAR}, 
+      #{bankPop,jdbcType=VARCHAR}, #{bankName,jdbcType=VARCHAR}, #{bankCard,jdbcType=VARCHAR}, 
+      #{regAddress,jdbcType=VARCHAR}, #{regDate,jdbcType=TIMESTAMP}, #{startDate,jdbcType=TIMESTAMP}, 
+      #{endDate,jdbcType=TIMESTAMP}, #{linkeCustomer,jdbcType=VARCHAR}, #{linkeAddress,jdbcType=VARCHAR}, 
+      #{linkePhone,jdbcType=VARCHAR}, #{createDate,jdbcType=VARCHAR}, #{createUpdate,jdbcType=VARCHAR}, 
+      #{remark,jdbcType=VARCHAR}, #{remark2,jdbcType=VARCHAR}, #{remark3,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{type,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yuyanzhe.mybatis.numybeans.ConContract" >
+    insert into con_contract
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="mainCode != null" >
+        main_code,
+      </if>
+      <if test="mainName != null" >
+        main_name,
+      </if>
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+      <if test="moneyMax != null" >
+        money_max,
+      </if>
+      <if test="bankPop != null" >
+        bank_pop,
+      </if>
+      <if test="bankName != null" >
+        bank_name,
+      </if>
+      <if test="bankCard != null" >
+        bank_card,
+      </if>
+      <if test="regAddress != null" >
+        reg_address,
+      </if>
+      <if test="regDate != null" >
+        reg_date,
+      </if>
+      <if test="startDate != null" >
+        start_date,
+      </if>
+      <if test="endDate != null" >
+        end_date,
+      </if>
+      <if test="linkeCustomer != null" >
+        linke_customer,
+      </if>
+      <if test="linkeAddress != null" >
+        linke_address,
+      </if>
+      <if test="linkePhone != null" >
+        linke_phone,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="createUpdate != null" >
+        create_update,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="remark2 != null" >
+        remark2,
+      </if>
+      <if test="remark3 != null" >
+        remark3,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="mainCode != null" >
+        #{mainCode,jdbcType=VARCHAR},
+      </if>
+      <if test="mainName != null" >
+        #{mainName,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="moneyMax != null" >
+        #{moneyMax,jdbcType=VARCHAR},
+      </if>
+      <if test="bankPop != null" >
+        #{bankPop,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null" >
+        #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCard != null" >
+        #{bankCard,jdbcType=VARCHAR},
+      </if>
+      <if test="regAddress != null" >
+        #{regAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="regDate != null" >
+        #{regDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startDate != null" >
+        #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null" >
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="linkeCustomer != null" >
+        #{linkeCustomer,jdbcType=VARCHAR},
+      </if>
+      <if test="linkeAddress != null" >
+        #{linkeAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="linkePhone != null" >
+        #{linkePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=VARCHAR},
+      </if>
+      <if test="createUpdate != null" >
+        #{createUpdate,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="remark2 != null" >
+        #{remark2,jdbcType=VARCHAR},
+      </if>
+      <if test="remark3 != null" >
+        #{remark3,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yuyanzhe.mybatis.numybeans.ConContract" >
+    update con_contract
+    <set >
+      <if test="mainCode != null" >
+        main_code = #{mainCode,jdbcType=VARCHAR},
+      </if>
+      <if test="mainName != null" >
+        main_name = #{mainName,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="money != null" >
+        money = #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="moneyMax != null" >
+        money_max = #{moneyMax,jdbcType=VARCHAR},
+      </if>
+      <if test="bankPop != null" >
+        bank_pop = #{bankPop,jdbcType=VARCHAR},
+      </if>
+      <if test="bankName != null" >
+        bank_name = #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="bankCard != null" >
+        bank_card = #{bankCard,jdbcType=VARCHAR},
+      </if>
+      <if test="regAddress != null" >
+        reg_address = #{regAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="regDate != null" >
+        reg_date = #{regDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="startDate != null" >
+        start_date = #{startDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null" >
+        end_date = #{endDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="linkeCustomer != null" >
+        linke_customer = #{linkeCustomer,jdbcType=VARCHAR},
+      </if>
+      <if test="linkeAddress != null" >
+        linke_address = #{linkeAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="linkePhone != null" >
+        linke_phone = #{linkePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=VARCHAR},
+      </if>
+      <if test="createUpdate != null" >
+        create_update = #{createUpdate,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="remark2 != null" >
+        remark2 = #{remark2,jdbcType=VARCHAR},
+      </if>
+      <if test="remark3 != null" >
+        remark3 = #{remark3,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yuyanzhe.mybatis.numybeans.ConContract" >
+    update con_contract
+    set main_code = #{mainCode,jdbcType=VARCHAR},
+      main_name = #{mainName,jdbcType=VARCHAR},
+      code = #{code,jdbcType=VARCHAR},
+      money = #{money,jdbcType=DECIMAL},
+      money_max = #{moneyMax,jdbcType=VARCHAR},
+      bank_pop = #{bankPop,jdbcType=VARCHAR},
+      bank_name = #{bankName,jdbcType=VARCHAR},
+      bank_card = #{bankCard,jdbcType=VARCHAR},
+      reg_address = #{regAddress,jdbcType=VARCHAR},
+      reg_date = #{regDate,jdbcType=TIMESTAMP},
+      start_date = #{startDate,jdbcType=TIMESTAMP},
+      end_date = #{endDate,jdbcType=TIMESTAMP},
+      linke_customer = #{linkeCustomer,jdbcType=VARCHAR},
+      linke_address = #{linkeAddress,jdbcType=VARCHAR},
+      linke_phone = #{linkePhone,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=VARCHAR},
+      create_update = #{createUpdate,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      remark2 = #{remark2,jdbcType=VARCHAR},
+      remark3 = #{remark3,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      type = #{type,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
