@@ -19,6 +19,12 @@ public class Main {
         s0 = s0 + s1;
         System.out.println(s0);
 
+        String name = "123";
+        ///convert name to Int
+
+
+
+
 
     }
 }
